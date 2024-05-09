@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: COMMENT-SERVICE  #USE APP NAME INSTEAD OF USING HARD CODED PORT VALUES
+  datasource:
+    url:  jdbc:mysql://localhost:3306/postdb
+    username: root
+    password: test
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.MYSQL8Dialect
+server:
+  port: 8082   # now we will identify microservices with name of project and not with port number because it can change and name is fix
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true  #true because this is client and it will interact with server
+    server-url:
+      defaultZone: http://localhost:8761/eureka
